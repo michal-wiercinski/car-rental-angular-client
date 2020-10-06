@@ -1,0 +1,24 @@
+<div [formGroup]="locationForm" *ngIf="checkIfCarExist()">
+<label for="typeahead-http-location" class="bmd-label-floating">Location</label>
+<input id="typeahead-http-location" type="text" class="form-control" [class.is-invalid]="searchFailed"
+       [ngbTypeahead]="search"
+       [resultFormatter]="formatter"
+       [inputFormatter]="formatter"
+       [defaultValue]="car.location"
+       (selectItem)="selectLocation($event)"
+/>
+<small *ngIf="searching" class="form-text text-muted">searching...</small>
+<div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+</div>
+
+<div [formGroup]="locationForm" *ngIf="!checkIfCarExist()">
+  <label for="typeahead-http-location-new-form" class="bmd-label-floating">Location</label>
+  <input id="typeahead-http-location-new-form" type="text" class="form-control" [class.is-invalid]="searchFailed"
+         [ngbTypeahead]="search"
+         [resultFormatter]="formatter"
+         [inputFormatter]="formatter"
+         (selectItem)="selectLocation($event)"
+  />
+  <small *ngIf="searching" class="form-text text-muted">searching...</small>
+  <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+</div>

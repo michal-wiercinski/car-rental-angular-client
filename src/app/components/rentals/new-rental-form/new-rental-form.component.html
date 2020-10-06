@@ -1,0 +1,46 @@
+<cs-header>
+  <p levels>Your new rental</p>
+  <div content>
+  </div>
+</cs-header>
+<div class="main-panel">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title">New rental</h4>
+          <p class="card-category">Please enter the current vehicle data</p>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="rentalForm">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="bmd-label-static">Start date</label>
+                <input formControlName="startDate" type="datetime-local" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="bmd-label-static">End date</label>
+                <input formControlName="endDate" type="datetime-local" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="bmd-label-static">Indefinite period of time</label>
+                <input formControlName="isIndefiniteTime" (change)="onChangeLimitedTime()" type="checkbox"
+                       class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-5 pt-3 pl-5">
+              <button [disabled]="rentalForm.invalid" (click)="onSubmit()" class="btn btn-outline-primary">
+                <i class="material-icons">add</i>Booking
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

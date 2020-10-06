@@ -1,0 +1,70 @@
+  <cs-header>
+    <p levels>Home</p>
+    <div content>
+      <!--<p *ngIf="statusCar==='AVAILABLE'">List of cars currently available for rent</p>-->
+    </div>
+  </cs-header>
+  <!--<cs-cars-filter></cs-cars-filter>-->
+  <div class="main-panel">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Available cars</h4>
+            <p class="card-category"></p>
+          </div>
+          <cs-cars-filter (urlParam)="setFilterParam($event)"></cs-cars-filter>
+          <!--    <div class="card-body">
+                <div class="row"></div>
+             &lt;!&ndash;   <div class="btn btn-primary-outline"><i class="material-icons"></i>Find for date</div>&ndash;&gt;
+
+              </div>-->
+          <div class="row">
+            <div class="card-group" *ngIf="!isEmpty; else noCarsInfo">
+              <div *ngFor="let car of  cars">
+                <div class="car-element">
+                  <img src="../../../../assets/img/mockImage.jpg" alt="car" class="car-img">
+                  <h2>{{car.carModel.brandName | uppercase}} {{car.carModel.carModelName | uppercase}}</h2>
+                  <p class="card-text">Gearbox type:{{car.carParameter.gearboxType}}</p>
+                  <p class="card-text">Fuel type: {{car.carParameter.fuelType}}</p>
+                  <p class="card-text">Daily rate: {{car.carParameter.dailyRate | currency: 'PLN  '}}</p>
+                  <p class="card-text">Location: {{car.location.name}}</p>
+                  <div class="pb-2">
+                    <div class="btn btn-outline mr-2 details-button" (click)="goToCarDetail(car)">
+                      <i class="material-icons">info</i>Details
+                    </div>
+                    <div class="btn btn-primary" [routerLink]="['/new-rental', car.id]" [routerLinkActive]="'active'"><i class="material-icons">book_online</i>Rent now</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ng-template #noCarsInfo>
+              <div class="no-cars-info">
+                Currently no cars in service
+              </div>
+            </ng-template>
+          </div>
+          <div class="row paginator offset-4">
+            <div class="footer-pagination">
+              <ngb-pagination [(page)]="thePageNumber"
+                              [pageSize]="thePageSize"
+                              [collectionSize]="totalElements"
+                              (pageChange)="loadAllCarsWithPage()">
+              </ngb-pagination>
+            </div>
+            <div class="col-md-4 page-size">
+              <span class="mr-2 font-weight-bold">Page size</span>
+              <select (change)="updatePageSize($event.target.value)">
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

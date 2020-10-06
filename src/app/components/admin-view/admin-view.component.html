@@ -1,0 +1,89 @@
+<cs-header>
+  <p levels>Admin panel</p>
+  <div content>
+  </div>
+</cs-header>
+<div class="main-panel">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="ml-2">
+        <div class="btn btn-success text-md-left text-center mb-3" (click)="openNewCarFormModal()">
+          <i class="material-icons">library_add</i>Add new car
+        </div>
+        <div>
+          <cs-cars-filter (urlParam)="setFilterParam($event)"></cs-cars-filter>
+        </div>
+      </div>
+      <div class="card card-plain">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>Registration Number</th>
+                <th>Car Model</th>
+                <th>Current Mileage</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let car of cars" (click)="goToCarDetail(car)">
+                <td>
+                  {{car.registrationNumber}}
+                </td>
+                <td>
+                  {{car.carModel.brandName}} {{car.carModel.carModelName}}
+                </td>
+                <td>
+                  {{car.carParameter.currentMileage}}
+                </td>
+                <td>
+                  {{car.location.name}}
+                </td>
+                <td>
+                  {{car.carStatus}}
+                </td>
+                <td class="row btn-group justify-content-center ">
+                  <div class="btn btn-outline-danger col-4  " (click)="removeCar(car,$event)">
+                    <span class="material-icons">delete_forever</span>delete
+                  </div>
+                  <div class="btn btn-outline-primary col-4" (click)="goToUpdateCar(car,$event)">
+                    <span class="material-icons">update</span>update
+                  </div>
+                  <div class="btn btn-outline-primary col-8" *ngIf="car.carStatus == 'Available'"
+                       (click)="changeAvailability('UAV',car,$event)">
+                    <span class="material-icons">highlight_off</span>set as unavailable
+                  </div>
+                  <div class="btn btn-outline-primary col-8" *ngIf="car.carStatus == 'Unavailable'"
+                       (click)="changeAvailability( 'AVI',car,$event)">
+                    <span class="material-icons">check_circle_outline</span>set as available
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row paginator offset-4">
+            <div class="footer-pagination">
+              <ngb-pagination [(page)]="thePageNumber"
+                              [pageSize]="thePageSize"
+                              [collectionSize]="totalElements"
+                              (pageChange)="loadAllCarsWithPage()">
+              </ngb-pagination>
+            </div>
+            <div class="col-md-4 page-size">
+              <span class="mr-2 font-weight-bold">Page size</span>
+              <select (change)="updatePageSize($event.target.value)">
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

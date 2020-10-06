@@ -1,0 +1,59 @@
+@import "../../../../assets/scss/material-dashboard/variables/colors";
+.rent-button{
+  background-color: $purple-400;
+}
+.no-cars-info {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #008fa1;
+  padding: 20px;
+  background: #cfd8dc;
+}
+
+.car-img {
+  width: 200px;
+  border-radius: 0 20px 0 20px;
+}
+
+.car-element {
+  padding: 40px;
+  width: 300px;
+  font-family: "Apple Color Emoji";
+}
+
+.car-element h2 {
+  font-family: "Fira Code";
+}
+
+.page-size {
+  select {
+    background-color: white;
+    border-radius: 4px;
+  }
+}
+/*ngb-pagination ::ng-deep  a {
+  color: white !important;
+}*/
+
+ngb-pagination ::ng-deep  .page-item:not(.active)  a:not(.active) {
+  color: $purple-400 !important;
+  border-color: $purple-400;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link  {
+  border-color: $purple-400;
+  background-color: $purple-400;
+  color: white;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link:focus, .page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
+}
+
+ngb-pagination ::ng-deep  .page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
+}
+
+

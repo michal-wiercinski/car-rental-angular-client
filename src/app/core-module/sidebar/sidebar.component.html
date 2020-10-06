@@ -1,0 +1,35 @@
+<div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+  <div class="logo">
+    <a [routerLink]="['/cars']" [routerLinkActive]="'active'" class="simple-text logo-normal">
+      Car Rental
+    </a>
+  </div>
+  <div class="sidebar-wrapper my-sidebar">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/cars']" [routerLinkActive]="'active'">
+          <i class="material-icons">home</i>
+          <p>Home</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="./user.html">
+          <i class="material-icons">person</i>
+          <p>User Profile</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="./typography.html">
+          <i class="material-icons">library_books</i>
+          <p>Your rented and bookings</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="./notifications.html">
+          <i class="material-icons">notifications</i>
+          <p>Notifications</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

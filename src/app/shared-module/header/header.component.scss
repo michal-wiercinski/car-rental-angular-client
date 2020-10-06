@@ -1,0 +1,15 @@
+@import "./src/assets/scss/material-dashboard/variables/colors";
+
+.header {
+  font-family: "Apple Color Emoji";
+  color: $purple-400;
+}
+.levels {
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.other-content {
+  font-size: 20px;
+}

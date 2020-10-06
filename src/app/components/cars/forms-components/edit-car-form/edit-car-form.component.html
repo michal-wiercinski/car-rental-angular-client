@@ -1,0 +1,183 @@
+<cs-header>
+  <p levels>Admin panel</p>
+  <div content>
+  </div>
+</cs-header>
+<div class="main-panel">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title">Edit Profile</h4>
+          <p class="card-category">Please enter the current vehicle data</p>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="carForm">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <cs-typeahead-cars-model [carModelForm]="carForm"
+                                           (carModelFormEmitter)="setCarModel($event)"
+                                           [car]="car"></cs-typeahead-cars-model>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <cs-typeahead-location [locationForm]="carForm"
+                                         (locationFormEmitter)="setLocation($event)"
+                                         [car]="car"></cs-typeahead-location>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Registration number</label>
+                  <input formControlName="registrationNumber" type="text" class="form-control"
+                         placeholder="Registration number">
+                </div>
+              </div>
+              <div class="col-md-3 pb-2">
+                <div class="form-group">
+                  <select formControlName="carStatus" class="form-control options-list">
+                    <option value="{{car.carStatus}}" selected>{{car.carStatus}}</option>
+                    <option value="AVAILABLE">Available</option>
+                    <option value="UNAVAILABLE">Unavailable</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div formGroupName="carParameter">
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Year</label>
+                    <input formControlName="yearOfProd" type="number" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Daily rate</label>
+                    <input formControlName="dailyRate" type="number" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Current mileage</label>
+                    <input formControlName="currentMileage" type="number" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Number of doors</label>
+                    <input formControlName="numberOfDoors" type="number" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Number of seats</label>
+                    <input formControlName="numberOfSeats" type="number" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Fuel tank volume</label>
+                    <input formControlName="fuelTankVolume" type="number" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Volume of luggage</label>
+                    <input formControlName="volumeOfLuggage" type="number" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Engine power</label>
+                    <input formControlName="enginePower" type="number" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Engine capacity</label>
+                    <input formControlName="engineCapacity" type="number" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Fuel consumption</label>
+                    <input formControlName="averageFuelConsumption" type="number"
+                           class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Number of gears</label>
+                    <input formControlName="numberOfGears" type="number" class="form-control"
+                           placeholder="Number of gears">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <select formControlName="wheelDrive" class="form-control options-list">
+                      <option value="{{car.carParameter.wheelDrive}}"
+                              selected>{{car.carParameter.wheelDrive}}</option>
+                      <option value="FRONT_WHEEL_DRIVE">Front-wheel drive</option>
+                      <option value="REAR_WHEEL_DRIVE">Rear-wheel drive</option>
+                      <option value="4x4">4x4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <select formControlName="gearboxType" class="form-control options-list">
+                      <option value="{{car.carParameter.gearboxType}}"
+                              selected>{{car.carParameter.gearboxType}}</option>
+                      <option value="MANUAL">Manual</option>
+                      <option value="AUTOMATIC">Automatic</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <select formControlName="fuelType" class="form-control options-list">
+                      <option value="{{car.carParameter.fuelType}}"
+                              selected> {{car.carParameter.fuelType}}</option>
+                      <option value="DIESEL">Diesel</option>
+                      <option value="HYBRID">Hybrid</option>
+                      <option value="PETROL">Petrol</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <select formControlName="bodyTypeName" class="form-control options-list">
+                      <option value="{{car.carParameter.bodyTypeName}}"
+                              selected>{{car.carParameter.bodyTypeName}}</option>
+                      <option value="COUPE">Coupe</option>
+                      <option value="HATCHBACK">Hatchback</option>
+                      <option value="JEEP">Jeep</option>
+                      <option value="SEDAN">Sedan</option>
+                      <option value="SUV">SUV</option>
+                      <option value="VAN">VAN</option>
+                      <option value="WAGON">Wagon</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-5 pt-3 pl-5">
+                <button [disabled]="carForm.invalid" (click)="onSubmit()" class="btn btn-outline-primary">
+                  <i class="material-icons">published_with_changes</i>Update car
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

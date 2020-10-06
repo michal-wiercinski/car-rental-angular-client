@@ -1,0 +1,26 @@
+<div [formGroup]="carModelForm" *ngIf="checkIfCarExist()">
+  <label for="typeahead-http-car-model" class="bmd-label-static">Car model</label>
+  <input id="typeahead-http-car-model" type="text" class="form-control" [class.is-invalid]="searchFailed"
+         [ngbTypeahead]="search"
+         [defaultValue]="car.carModel"
+         [resultFormatter]="formatter"
+         [inputFormatter]="formatter"
+         (selectItem)="selectCarModel($event)"
+  />
+  <small *ngIf="searching" class="form-text text-muted">searching...</small>
+  <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+</div>
+
+
+<div [formGroup]="carModelForm" *ngIf="!checkIfCarExist()">
+  <label for="typeahead-http-car-model-new-form" class="bmd-label-floating">Car model</label>
+  <input id="typeahead-http-car-model-new-form" type="text" class="form-control" [class.is-invalid]="searchFailed"
+         [ngbTypeahead]="search"
+         [resultFormatter]="formatter"
+         [inputFormatter]="formatter"
+         (selectItem)="selectCarModel($event)"
+  />
+  <small *ngIf="searching" class="form-text text-muted">searching...</small>
+  <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+</div>
+
