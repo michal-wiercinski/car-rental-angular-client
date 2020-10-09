@@ -6,6 +6,7 @@ import {PageOfCarsComponent} from '../components/cars/page-of-cars/page-of-cars.
 import {NewCarFormComponent} from '../components/cars/forms-components/new-car-form/new-car-form.component';
 import {EditCarFormComponent} from '../components/cars/forms-components/edit-car-form/edit-car-form.component';
 import {NewRentalFormComponent} from '../components/rentals/new-rental-form/new-rental-form.component';
+import {ProfileComponent} from '../components/users/profile/profile.component';
 
 const CARS_ROUTES: Route[] = [
   {
@@ -26,6 +27,10 @@ const CARS_ROUTES: Route[] = [
     path: 'new-rental/:id',
     component: NewRentalFormComponent,
     resolve: {car: CarResolveService}
+  },
+  {
+    path: 'user-profile/:id',
+    component: ProfileComponent,
   }
 ];
 

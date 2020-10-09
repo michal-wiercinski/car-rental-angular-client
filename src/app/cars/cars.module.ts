@@ -15,7 +15,6 @@ import {NewCarFormComponent} from '../components/cars/forms-components/new-car-f
 import {EditCarFormComponent} from '../components/cars/forms-components/edit-car-form/edit-car-form.component';
 import {RegistrationFormComponent} from '../components/users/registration-form/registration-form.component';
 import {LoginFormComponent} from '../components/users/login-form/login-form.component';
-import {authInterceptorProviders} from '../interceptors/auth-interceptor.service';
 
 
 @NgModule({
@@ -31,18 +30,18 @@ import {authInterceptorProviders} from '../interceptors/auth-interceptor.service
     RegistrationFormComponent,
     LoginFormComponent,
   ],
-    imports: [
-        CommonModule,
-        SharedModule,
-        RouterModule,
-        ReactiveFormsModule,
-        NgbPaginationModule,
-        NgbCarouselModule,
-        NgbDropdownModule,
-        NgbTypeaheadModule,
-        NgbModule,
-        FormsModule
-    ],
+  imports: [
+    CommonModule,
+    SharedModule,
+    RouterModule,
+    ReactiveFormsModule,
+    NgbPaginationModule,
+    NgbCarouselModule,
+    NgbDropdownModule,
+    NgbTypeaheadModule,
+    NgbModule,
+    FormsModule
+  ],
   exports: [
     PageOfCarsComponent,
     CarsFilterComponent,
