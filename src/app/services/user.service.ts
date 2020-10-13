@@ -20,9 +20,19 @@ export class UserService {
     return this.http.get<User>(`${this.apiUrl}/get-user`);
   }
 
-  updateUser(data): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}`, data);
+  updateUser(id: number, data): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/${id}`, data);
   }
 
+  sendPasswordResetToken(email: string) {
+    return this.http.post(`${this.apiUrl}/reset-password`, email);
+  }
 
+  changePasswordByToken(token: string, data) {
+    return this.http.patch(`${this.apiUrl}/change-password/${token}`, data);
+  }
+
+  updatePassword(data) {
+    return this.http.patch(`${this.apiUrl}/update-password/`, data);
+  }
 }

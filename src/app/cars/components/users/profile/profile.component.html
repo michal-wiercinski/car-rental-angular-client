@@ -1,0 +1,126 @@
+<cs-header>
+  <p levels>User profile</p>
+  <div content>
+  </div>
+</cs-header>
+<div class="main-panel">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Your Profile</h4>
+              <p class="card-category">You can check or update your data</p>
+            </div>
+            <div class="card-body ">
+              <!--<label class="checkbox-inline">
+                <input type="checkbox" (change)="onChangeToUpdate()" checked data-toggle="toggle"> Update
+              </label>-->
+              <cs-password-update-form></cs-password-update-form>
+              <form class="pt-2" *ngIf="user" [formGroup]="userForm">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">First name</label>
+                      <input formControlName="firstName" type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Last name</label>
+                      <input formControlName="lastName" type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">E-mail address</label>
+                      <input formControlName="email" type="email" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <!--    <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Country</label>
+                          <input formControlName="country" type="text" class="form-control">
+                        </div>
+                      </div>-->
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">City</label>
+                      <input formControlName="city" type="text" class="form-control">
+                    </div>
+                  </div>
+                  <!--<div class="col-md-3">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">ID address</label>
+                      <input hidden formControlName="addressId" type="text" class="form-control">
+                    </div>
+                  </div>-->
+                  <div class="col-md-3">
+                  <div class="form-group">
+                      <label class="bmd-label-floating">Street</label>
+                      <input formControlName="street" type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">House number</label>
+                      <input formControlName="houseNumber" type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Zip code</label>
+                      <input formControlName="zipCode" type="text" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12 col-md-5 pt-3 pl-5">
+                    <button [disabled]="userForm.invalid" (click)="onSubmit()" class="btn btn-outline-primary">
+                      <i class="material-icons">add</i>Update
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-profile">
+            <div class="card-avatar">
+              <a href="javascript:;">
+                <img class="img" src="../assets/img/faces/marc.jpg"/>
+              </a>
+            </div>
+            <div class="card-body">
+              <h6 class="card-category text-gray">{{user.email}}</h6>
+              <h4 class="card-title">{{user.firstName}} {{user.lastName}}</h4>
+              <div class="card-description">
+                <ul>
+                  <li>
+                    City: {{user.city}}
+                  </li>
+                  <li>
+                    Street: {{user.street}}
+                  </li>
+                  <li>
+                    House number: {{user.houseNumber}}
+                  </li>
+                  <li>
+                    Zip code: {{user.zipCode}}
+                  </li>
+                </ul>
+              </div>
+              <a href="javascript:;" class="btn btn-primary btn-round">Follow</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

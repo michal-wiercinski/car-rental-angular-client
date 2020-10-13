@@ -1,0 +1,58 @@
+<cs-header>
+  <p levels>Login page</p>
+  <div content>
+  </div>
+</cs-header>
+<div class="main-panel">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title">Hello!</h4>
+          <p class="card-category">Please enter data to your account</p>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="loginForm">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="bmd-label-floating">E-mail address</label>
+                  <input formControlName="email" type="email" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Password</label>
+                  <input formControlName="password" type="password" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-5 pt-3 pl-5">
+                <button [disabled]="loginForm.invalid" (click)="login()" class="btn btn-outline-primary">
+                  <i class="material-icons">login</i>Sign in
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <div
+                class="alert alert-danger"
+                role="alert"
+                *ngIf="isLoginFailed">
+                Login failed: {{ errorMessage }}
+              </div>
+            </div>
+          </form>
+          <div class="alert alert-success" *ngIf="isLoggedIn">
+            Logged in as {{ roles }}.
+          </div>
+          <div class="btn btn-sm col-md-3 text-center mb-3"  (click)="openPasswordReminderFormModal()">
+            <p>I forgot my password</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

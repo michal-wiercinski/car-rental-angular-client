@@ -1,20 +1,27 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from '../shared-module/shared.module';
-import {PageOfCarsComponent} from '../components/cars/page-of-cars/page-of-cars.component';
-import {CarDetailsComponent} from '../components/cars/cars-details/car-details.component';
+import {PageOfCarsComponent} from './components/cars/page-of-cars/page-of-cars.component';
+import {CarDetailsComponent} from './components/cars/cars-details/car-details.component';
 import {CarResolveService} from './car-resolve-service';
 import {RouterModule} from '@angular/router';
 import {NgbCarouselModule, NgbDropdownModule, NgbModule, NgbPaginationModule, NgbTypeaheadModule} from '@ng-bootstrap/ng-bootstrap';
-import {NgbdCarouselBasicComponent} from '../components/cars/ngbd-carousel-basic/ngbd-carousel-basic.component';
-import {CarsFilterComponent} from '../components/cars/cars-filter/cars-filter.component';
-import {TypeaheadCarsModelComponent} from '../components/cars/typeahead-cars-model/typeahead-cars-model.component';
+import {NgbdCarouselBasicComponent} from './components/cars/ngbd-carousel-basic/ngbd-carousel-basic.component';
+import {CarsFilterComponent} from './components/cars/cars-filter/cars-filter.component';
+import {TypeaheadCarsModelComponent} from './components/cars/typeahead-cars-model/typeahead-cars-model.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {TypeaheadLocationComponent} from '../components/cars/typeahead-location/typeahead-location.component';
-import {NewCarFormComponent} from '../components/cars/forms-components/new-car-form/new-car-form.component';
-import {EditCarFormComponent} from '../components/cars/forms-components/edit-car-form/edit-car-form.component';
-import {RegistrationFormComponent} from '../components/users/registration-form/registration-form.component';
-import {LoginFormComponent} from '../components/users/login-form/login-form.component';
+import {TypeaheadLocationComponent} from './components/cars/typeahead-location/typeahead-location.component';
+import {NewCarFormComponent} from './components/cars/forms-components/new-car-form/new-car-form.component';
+import {EditCarFormComponent} from './components/cars/forms-components/edit-car-form/edit-car-form.component';
+import {RegistrationFormComponent} from './components/users/registration-form/registration-form.component';
+import {LoginFormComponent} from './components/users/login-form/login-form.component';
+import {AdminViewComponent} from './components/admin-view/admin-view.component';
+import {ProfileComponent} from './components/users/profile/profile.component';
+import {NewRentalFormComponent} from './components/rentals/new-rental-form/new-rental-form.component';
+import {UserResolveService} from './user-resolve-service';
+import {PasswordReminderFormComponent} from './components/users/password-reminder-form/password-reminder-form.component';
+import {PasswordResetFormComponent} from './components/users/password-reset-form/password-reset-form.component';
+import {PasswordUpdateFormComponent} from './components/users/password-update-form/password-update-form.component';
 
 
 @NgModule({
@@ -29,6 +36,12 @@ import {LoginFormComponent} from '../components/users/login-form/login-form.comp
     EditCarFormComponent,
     RegistrationFormComponent,
     LoginFormComponent,
+    AdminViewComponent,
+    ProfileComponent,
+    NewRentalFormComponent,
+    PasswordReminderFormComponent,
+    PasswordResetFormComponent,
+    PasswordUpdateFormComponent
   ],
   imports: [
     CommonModule,
@@ -42,12 +55,17 @@ import {LoginFormComponent} from '../components/users/login-form/login-form.comp
     NgbModule,
     FormsModule
   ],
+  entryComponents: [
+    NewCarFormComponent,
+    EditCarFormComponent
+  ],
   exports: [
     PageOfCarsComponent,
     CarsFilterComponent,
     NewCarFormComponent],
   providers: [
-    CarResolveService
+    CarResolveService,
+    UserResolveService
   ]
 })
 export class CarsModule {
