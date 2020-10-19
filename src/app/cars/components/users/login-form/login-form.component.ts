@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../../services/user.service';
 import {Router} from '@angular/router';
 import {TokenStorageService} from '../../../../services/token-storage.service';
@@ -17,6 +17,7 @@ export class LoginFormComponent implements OnInit {
   loginForm: any = {};
   isLoggedIn = false;
   isLoginFailed = false;
+  submitted = false;
   errorMessage = '';
   roles: string[] = [];
 
@@ -36,14 +37,19 @@ export class LoginFormComponent implements OnInit {
     this.loginForm = this.buildLoginForm();
   }
 
-    buildLoginForm() {
-      return this.formBuilder.group({
-        email: [''],
-        password: ['']
-      });
-    }
+  get loginFormControls() {
+    return this.loginForm.controls;
+  }
+
+  buildLoginForm() {
+    return this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    });
+  }
 
   login() {
+    this.submitted = true;
     this.authService.login(this.loginForm.value).subscribe(
       data => {
         this.tokenStorage.saveToken(data.token);
@@ -55,7 +61,7 @@ export class LoginFormComponent implements OnInit {
         this.router.navigateByUrl('/');
       },
       error => {
-        this.errorMessage = error.error.errorMessage;
+        this.errorMessage = error.error.message;
         this.isLoginFailed = true;
       }
     );
