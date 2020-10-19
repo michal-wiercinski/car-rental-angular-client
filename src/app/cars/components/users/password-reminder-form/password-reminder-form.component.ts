@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {UserService} from '../../../../services/user.service';
@@ -12,6 +12,10 @@ import {UserService} from '../../../../services/user.service';
 export class PasswordReminderFormComponent implements OnInit {
 
   @Input() emailForm: FormGroup;
+  submitted = false;
+  errorMessage = '';
+  apiResponse = {message: '', error: false};
+  errorFieldSubmitted = {};
   closeResult = '';
 
   constructor(private userService: UserService,
@@ -24,18 +28,27 @@ export class PasswordReminderFormComponent implements OnInit {
     this.emailForm = this.buildEmailForm();
   }
 
+  get emailControl() {
+    return this.emailForm.controls.email;
+  }
+
   buildEmailForm() {
     return this.formBuilder.group({
-      email: [''],
+      email: ['', [Validators.email, Validators.required]],
     });
   }
 
   onSubmit() {
+    this.submitted = true;
     console.log(this.emailForm.value.email);
     this.userService.sendPasswordResetToken(this.emailForm.value.email).subscribe(() => {
-      this.router.navigate(['/sign-in']);
-    });
-    this.modalService.dismissAll();
+        this.router.navigate(['/sign-in']);
+      },
+      error => {
+        this.errorMessage = error.error.message;
+      }
+    );
+    //this.modalService.dismissAll();
   }
 
   open(content) {
