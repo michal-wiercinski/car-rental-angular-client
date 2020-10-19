@@ -22,6 +22,7 @@ import {UserResolveService} from './user-resolve-service';
 import {PasswordReminderFormComponent} from './components/users/password-reminder-form/password-reminder-form.component';
 import {PasswordResetFormComponent} from './components/users/password-reset-form/password-reset-form.component';
 import {PasswordUpdateFormComponent} from './components/users/password-update-form/password-update-form.component';
+import { ApiMessagePipe } from './pipes/api-message.pipe';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {PasswordUpdateFormComponent} from './components/users/password-update-fo
     NewRentalFormComponent,
     PasswordReminderFormComponent,
     PasswordResetFormComponent,
-    PasswordUpdateFormComponent
+    PasswordUpdateFormComponent,
+    ApiMessagePipe
   ],
   imports: [
     CommonModule,
