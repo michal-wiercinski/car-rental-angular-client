@@ -48,7 +48,6 @@ export class PasswordReminderFormComponent implements OnInit {
         this.errorMessage = error.error.message;
       }
     );
-    //this.modalService.dismissAll();
   }
 
   open(content) {
@@ -67,5 +66,9 @@ export class PasswordReminderFormComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+
+  closeModal() {
+    this.modalService.dismissAll();
   }
 }

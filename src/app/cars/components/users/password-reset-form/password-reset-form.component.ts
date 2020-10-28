@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../../services/user.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -30,9 +30,9 @@ export class PasswordResetFormComponent implements OnInit {
 
   buildChangePasswordForm() {
     return this.formBuilder.group({
-      newPassword: [''],
-      confirmPassword: [''],
-      token: [this.tokenFromUrl],
+      newPassword: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+      token: [this.tokenFromUrl, Validators.required],
     });
   }
 

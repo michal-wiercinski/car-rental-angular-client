@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../../services/user.service';
 
 @Component({
@@ -11,6 +11,10 @@ import {UserService} from '../../../../services/user.service';
 export class PasswordUpdateFormComponent implements OnInit {
   updatePasswordForm: FormGroup;
   isCollapsed: boolean;
+  errorMessage = '';
+  submitted = false;
+  apiResponse = {message: '', error: false};
+  errorFieldSubmitted = {};
 
   constructor(private userService: UserService,
               private formBuilder: FormBuilder,
@@ -21,19 +25,36 @@ export class PasswordUpdateFormComponent implements OnInit {
     this.updatePasswordForm = this.buildUpdatePasswordForm();
   }
 
+  get updatePasswordFormControl() {
+    return this.updatePasswordForm.controls;
+  }
+
   buildUpdatePasswordForm() {
     return this.formBuilder.group({
-      oldPassword: [''],
-      newPassword: [''],
-      confirmPassword: ['']
+      oldPassword: ['', Validators.required],
+      newPassword: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
     });
   }
 
   onSubmit() {
-    console.log(this.updatePasswordForm.value);
+    this.submitted = true;
     this.userService.updatePassword(this.updatePasswordForm.value).subscribe(() => {
-      this.router.navigate(['/user-profile']);
-    });
+        this.errorFieldSubmitted = {};
+        this.apiResponse.error = false;
+        this.apiResponse.message = 'Password has been updated';
+        this.updatePasswordForm.reset();
+      },
+      error => {
+        const errorResponse = error.error;
+        this.errorMessage = error.error.message;
+        this.apiResponse.error = true;
+        this.apiResponse.message = 'Password change error';
+        if (errorResponse.error && errorResponse.message === 'VALIDATION_FAILED') {
+          this.errorFieldSubmitted = errorResponse.data;
+        }
+      }
+    );
   }
 
   collapsing() {
