@@ -4,7 +4,6 @@ import {Router} from '@angular/router';
 import {Car} from '../../../models/car';
 import {NewCarFormComponent} from '../cars/forms-components/new-car-form/new-car-form.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {EditCarFormComponent} from '../cars/forms-components/edit-car-form/edit-car-form.component';
 
 @Component({
   selector: 'cs-admin-view',
@@ -54,7 +53,7 @@ export class AdminViewComponent implements OnInit {
     });
   }
 
-  changeAvailability(carStatus: string, car: Car, event) {
+  changeAvailability(car: Car, carStatus: string, event) {
     event.stopPropagation();
     this.carsService.changeAvailability(car.id, carStatus, car).subscribe((newData) => {
       console.log(this.loadAllCarsWithPage());

@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 })
 export class EnumService {
 
-  private apiUrl = 'http://localhost:8080/enums';
+  private apiUrl = 'http://localhost:5000/enums';
 
   constructor(private http: HttpClient) {
   }

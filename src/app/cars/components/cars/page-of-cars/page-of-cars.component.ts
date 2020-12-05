@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Car} from '../../../../models/car';
 import {CarsService} from '../../../../services/cars.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {CarDetailsComponent} from "../cars-details/car-details.component";
 
 
 @Component({
@@ -24,7 +26,8 @@ export class PageOfCarsComponent implements OnInit {
 
   constructor(private carsService: CarsService,
               private router: Router,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private modalService: NgbModal) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
@@ -58,6 +61,7 @@ export class PageOfCarsComponent implements OnInit {
     this.loadAllCarsWithPage();
   }
 
+
   processResult() {
     return data => {
       if (data._embedded.cars === '') {
@@ -68,5 +72,10 @@ export class PageOfCarsComponent implements OnInit {
       this.thePageSize = data.page.size;
       this.totalElements = data.page.totalElements;
     };
+  }
+
+  openCarDetailsModal(car: Car) {
+    const modal = this.modalService.open(CarDetailsComponent, {size: 'md'});
+    modal.componentInstance.car = car;
   }
 }

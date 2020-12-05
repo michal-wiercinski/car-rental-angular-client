@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {RentalService} from '../../../../services/rental.service';
 import {Car} from '../../../../models/car';
+import {CarDetailsComponent} from "../../cars/cars-details/car-details.component";
 
 @Component({
   selector: 'app-new-rental-form',
@@ -12,19 +12,21 @@ import {Car} from '../../../../models/car';
 })
 export class NewRentalFormComponent implements OnInit {
   car: Car;
+  @ViewChild("carDetails")
+  carDetailsComponent: CarDetailsComponent;
+
   rentalForm: FormGroup;
-  isNotLimitedTime: boolean;
 
   constructor(private rentalService: RentalService,
               private router: Router,
               private activeRoute: ActivatedRoute,
-              private formBuilder: FormBuilder,
-              private modalService: NgbModal) {
+              private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
     this.loadCar();
     this.rentalForm = this.buildRentForm();
+    this.removeModalsCloseButton();
   }
 
   buildRentForm() {
@@ -53,5 +55,9 @@ export class NewRentalFormComponent implements OnInit {
     this.rentalService.createRent(this.car.id, this.rentalForm.value).subscribe(() => {
       this.router.navigate(['/cars']);
     });
+  }
+
+  removeModalsCloseButton() {
+    document.getElementById("modals-close-button").remove();
   }
 }

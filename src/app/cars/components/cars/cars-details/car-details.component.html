@@ -1,74 +1,48 @@
-<div class="main-panel">
-  <cs-header>
-    <div content>
-      <p>Details car</p>
+<div class="card">
+  <div class="card-header card-header-primary">
+    <div id="modals-close-button" class="btn btn-sm-outline float-right" (click)="closeModal()">
+      <i class="material-icons">close</i>
     </div>
-    <p levels> {{car.carModel.brandName}} {{car.carModel.carModelName}}</p>
-  </cs-header>
-  <div class="content">
-    <div class="container-fluid">
-    <!--
-      <div class="col-md-4 p-4">
-        <img src="assets/mockImage.jpg" class="img-car-detail">
-      </div>
-    -->
-
-    <div class="row">
-      <div class="col-md-9 col-sm-12">
-        <cs-ngbd-carousel-basic></cs-ngbd-carousel-basic>
-      </div>
-      <div class="col-md-3 col-sm-12">
-        <div class="card card-next-image">
-          <div class="card-header">
-            Basic
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Registration number: {{car.registrationNumber}}</li>
-            <li class="list-group-item">Car status: {{car.carStatus}}</li>
-            <li class="list-group-item">Location: {{car.location.name}}</li>
-            <li class="list-group-item">Location: {{car.carParameter.yearOfProd}}</li>
-            <li class="list-group-item">Color: {{car?.carParameter.color}}</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-12  card-group">
-        <div class="card">
-          <div class="card">
-            <div class="card-header">
-              Car body
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Body type name: {{car.carParameter.bodyTypeName}}</li>
-              <li class="list-group-item">Number of seats: {{car.carParameter.numberOfSeats}}</li>
-              <li class="list-group-item">Number of doors: {{car.carParameter.numberOfDoors}}</li>
-              <li class="list-group-item">Fuel tank volume: {{car.carParameter.fuelTankVolume}}</li>
-              <li class="list-group-item">Volume of luggage: {{car.carParameter.volumeOfLuggage}}</li>
-            </ul>
-          </div>
-          <div class="card-header">
-            Engine
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Engine power: {{car.carParameter.enginePower}}</li>
-            <li class="list-group-item">Engine capacity: {{car.carParameter.engineCapacity}}</li>
-            <li class="list-group-item">Fuel type: {{car.carParameter.fuelType}}</li>
-            <li class="list-group-item">Fuel consumption: {{car.carParameter.averageFuelConsumption}}</li>
-          </ul>
-        </div>
-        <hr>
-        <div class="card">
-          <div class="card-header">
-            Drive train
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Gearbox type: {{car.carParameter.gearboxType}}</li>
-            <li class="list-group-item">Wheel drive: {{car.carParameter.wheelDrive}}</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <h4 class="card-title">{{car.carModel.brandName}} {{car.carModel.carModelName}}</h4>
   </div>
-</div>
+  <div class="card-body">
+    <div class="car-details-list-header">
+      Basic
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Registration number: {{car.registrationNumber}}</li>
+      <li class="list-group-item">Car status: {{car.carStatus}}</li>
+      <li class="list-group-item">Location: {{car.location.name}}</li>
+      <li class="list-group-item">Location: {{car.carParameter.yearOfProd}}</li>
+      <li class="list-group-item">Color: {{car?.carParameter.color}}</li>
+    </ul>
+    <div class="car-details-list-header">
+      Car body
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Body type name: {{car.carParameter.bodyTypeName}}</li>
+      <li class="list-group-item">Number of seats: {{car.carParameter.numberOfSeats}}</li>
+      <li class="list-group-item">Number of doors: {{car.carParameter.numberOfDoors}}</li>
+      <li class="list-group-item">Fuel tank volume: {{car.carParameter.fuelTankVolume}}</li>
+      <li class="list-group-item">Volume of luggage: {{car.carParameter.volumeOfLuggage}}</li>
+    </ul>
+    <div>
+      <div class="car-details-list-header">
+        Engine
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Engine power: {{car.carParameter.enginePower}}</li>
+        <li class="list-group-item">Engine capacity: {{car.carParameter.engineCapacity}}</li>
+        <li class="list-group-item">Fuel type: {{car.carParameter.fuelType}}</li>
+        <li class="list-group-item">Fuel consumption: {{car.carParameter.averageFuelConsumption}}</li>
+      </ul>
+    </div>
+    <div class="car-details-list-header">
+      Drive train
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Gearbox type: {{car.carParameter.gearboxType}}</li>
+      <li class="list-group-item">Wheel drive: {{car.carParameter.wheelDrive}}</li>
+    </ul>
+  </div>
 </div>

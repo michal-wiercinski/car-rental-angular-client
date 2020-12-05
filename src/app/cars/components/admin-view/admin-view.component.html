@@ -53,11 +53,11 @@
                     <span class="material-icons">update</span>update
                   </div>
                   <div class="btn btn-outline-primary col-8" *ngIf="car.carStatus == 'Available'"
-                       (click)="changeAvailability('UAV',car,$event)">
+                       (click)="changeAvailability(car, 'UNAVAILABLE',$event)">
                     <span class="material-icons">highlight_off</span>set as unavailable
                   </div>
                   <div class="btn btn-outline-primary col-8" *ngIf="car.carStatus == 'Unavailable'"
-                       (click)="changeAvailability( 'AVI',car,$event)">
+                       (click)="changeAvailability( car,'AVAILABLE',$event)">
                     <span class="material-icons">check_circle_outline</span>set as available
                   </div>
                 </td>

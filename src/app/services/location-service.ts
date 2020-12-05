@@ -8,7 +8,7 @@ import {CarLocation} from '../models/car-location';
   providedIn: 'root'
 })
 export class LocationService {
-  private apiUrl = 'http://localhost:8080/location';
+  private apiUrl = 'http://localhost:5000/location';
   private httpOptions = {
     headers: new HttpHeaders({
       'Accept': '  application/hal+json',

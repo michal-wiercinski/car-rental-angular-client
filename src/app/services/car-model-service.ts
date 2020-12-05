@@ -7,7 +7,7 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class CarModelService {
-  private apiUrl = 'http://localhost:8080/carModel';
+  private apiUrl = 'http://localhost:5000/carModel';
   private httpOptions = {
     headers: new HttpHeaders({
       'Accept': '  application/hal+json',

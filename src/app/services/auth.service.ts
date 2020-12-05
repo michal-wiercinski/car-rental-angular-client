@@ -7,7 +7,7 @@ import {User} from '../models/user';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/users';
+  private apiUrl = 'http://localhost:5000/users';
   private httpOptions = {
     headers: new HttpHeaders({'Content-type': 'application/json'})
   };
