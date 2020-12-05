@@ -30,12 +30,6 @@ export class ProfileComponent implements OnInit {
     this.user = this.route.snapshot.data['user'];
     console.log(this.user);
   }
-/*    this.userService.getUser().subscribe(data => {
-      console.log(data);
-      this.user = data;
-      console.log(this.user);
-    });
-  }*/
 
   buildUserForm() {
     return this.formBuilder.group({

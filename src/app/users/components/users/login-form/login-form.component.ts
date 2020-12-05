@@ -4,7 +4,7 @@ import {UserService} from '../../../../services/user.service';
 import {Router} from '@angular/router';
 import {TokenStorageService} from '../../../../services/token-storage.service';
 import {AuthService} from '../../../../services/auth.service';
-import {NewCarFormComponent} from '../../cars/forms-components/new-car-form/new-car-form.component';
+import {NewCarFormComponent} from '../../../../cars/components/cars/forms-components/new-car-form/new-car-form.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {PasswordReminderFormComponent} from '../password-reminder-form/password-reminder-form.component';
 

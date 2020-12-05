@@ -6,8 +6,8 @@ import {PageOfCarsComponent} from './components/cars/page-of-cars/page-of-cars.c
 import {NewCarFormComponent} from './components/cars/forms-components/new-car-form/new-car-form.component';
 import {EditCarFormComponent} from './components/cars/forms-components/edit-car-form/edit-car-form.component';
 import {NewRentalFormComponent} from './components/rentals/new-rental-form/new-rental-form.component';
-import {ProfileComponent} from './components/users/profile/profile.component';
-import {UserResolveService} from './user-resolve-service';
+import {ProfileComponent} from '../users/components/users/profile/profile.component';
+import {UserResolveService} from '../users/user-resolve-service';
 
 const CARS_ROUTES: Route[] = [
   {

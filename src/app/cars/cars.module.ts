@@ -13,16 +13,16 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TypeaheadLocationComponent} from './components/cars/typeahead-location/typeahead-location.component';
 import {NewCarFormComponent} from './components/cars/forms-components/new-car-form/new-car-form.component';
 import {EditCarFormComponent} from './components/cars/forms-components/edit-car-form/edit-car-form.component';
-import {RegistrationFormComponent} from './components/users/registration-form/registration-form.component';
-import {LoginFormComponent} from './components/users/login-form/login-form.component';
+import {RegistrationFormComponent} from '../users/components/users/registration-form/registration-form.component';
+import {LoginFormComponent} from '../users/components/users/login-form/login-form.component';
 import {AdminViewComponent} from './components/admin-view/admin-view.component';
-import {ProfileComponent} from './components/users/profile/profile.component';
+import {ProfileComponent} from '../users/components/users/profile/profile.component';
 import {NewRentalFormComponent} from './components/rentals/new-rental-form/new-rental-form.component';
-import {UserResolveService} from './user-resolve-service';
-import {PasswordReminderFormComponent} from './components/users/password-reminder-form/password-reminder-form.component';
-import {PasswordResetFormComponent} from './components/users/password-reset-form/password-reset-form.component';
-import {PasswordUpdateFormComponent} from './components/users/password-update-form/password-update-form.component';
-import { ApiMessagePipe } from './pipes/api-message.pipe';
+import {UserResolveService} from '../users/user-resolve-service';
+import {PasswordReminderFormComponent} from '../users/components/users/password-reminder-form/password-reminder-form.component';
+import {PasswordResetFormComponent} from '../users/components/users/password-reset-form/password-reset-form.component';
+import {PasswordUpdateFormComponent} from '../users/components/users/password-update-form/password-update-form.component';
+import { ApiMessagePipe } from '../pipes/api-message.pipe';
 
 
 @NgModule({

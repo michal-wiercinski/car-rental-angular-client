@@ -14,9 +14,6 @@
               <p class="card-category">You can check or update your data</p>
             </div>
             <div class="card-body ">
-              <!--<label class="checkbox-inline">
-                <input type="checkbox" (change)="onChangeToUpdate()" checked data-toggle="toggle"> Update
-              </label>-->
               <cs-password-update-form></cs-password-update-form>
               <form class="pt-2" *ngIf="user" [formGroup]="userForm">
                 <div class="row">
