@@ -1,8 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppComponent} from './app.component';
-
 import {CarsModule} from './cars/cars.module';
 import {CarsService} from './services/cars.service';
 import {HttpClientModule} from '@angular/common/http';
@@ -15,6 +13,9 @@ import {NewCarFormComponent} from './cars/components/cars/forms-components/new-c
 import {EditCarFormComponent} from './cars/components/cars/forms-components/edit-car-form/edit-car-form.component';
 import {authInterceptorProviders} from './interceptors/auth-interceptor.service';
 import {ReactiveFormsModule} from '@angular/forms';
+import {UserRoutingModule} from "./users/user-routing.module";
+import {UserService} from "./services/user.service";
+import {UsersModule} from "./users/users.module";
 
 @NgModule({
   declarations: [
@@ -25,19 +26,18 @@ import {ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     HttpClientModule,
     CarsModule,
+    UsersModule,
     CoreModule,
     AppRoutingModule,
     CarsRoutingModule,
+    UserRoutingModule,
     NgbModule,
     SharedModule,
     ReactiveFormsModule,
   ],
-  entryComponents: [
-    NewCarFormComponent,
-    EditCarFormComponent
-  ],
   providers: [
     CarsService,
+    UserService,
     authInterceptorProviders
   ],
   bootstrap: [AppComponent]

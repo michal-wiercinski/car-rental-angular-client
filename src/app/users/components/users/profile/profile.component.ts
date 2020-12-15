@@ -5,7 +5,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-  selector: 'cs-profile',
+  selector: 'us-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })

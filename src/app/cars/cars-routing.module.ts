@@ -6,8 +6,7 @@ import {PageOfCarsComponent} from './components/cars/page-of-cars/page-of-cars.c
 import {NewCarFormComponent} from './components/cars/forms-components/new-car-form/new-car-form.component';
 import {EditCarFormComponent} from './components/cars/forms-components/edit-car-form/edit-car-form.component';
 import {NewRentalFormComponent} from './components/rentals/new-rental-form/new-rental-form.component';
-import {ProfileComponent} from '../users/components/users/profile/profile.component';
-import {UserResolveService} from '../users/user-resolve-service';
+import {AdminViewComponent} from "./components/admin-view/admin-view.component";
 
 const CARS_ROUTES: Route[] = [
   {
@@ -20,6 +19,23 @@ const CARS_ROUTES: Route[] = [
     component: NewCarFormComponent,
   },
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'cars'
+  },
+  {
+    path: 'cars',
+    component: PageOfCarsComponent
+  },
+  {
+    path: 'cars/**',
+    component: PageOfCarsComponent
+  },
+  {
+    path: 'admin',
+    component: AdminViewComponent
+  },
+  {
     path: 'edit-car/:id',
     component: EditCarFormComponent,
     resolve: {car: CarResolveService}
@@ -28,11 +44,6 @@ const CARS_ROUTES: Route[] = [
     path: 'new-rental/:id',
     component: NewRentalFormComponent,
     resolve: {car: CarResolveService}
-  },
-  {
-    path: 'user-profile',
-    component: ProfileComponent,
-    resolve: {user: UserResolveService}
   }
 ];
 

@@ -1,7 +1,6 @@
 <cs-header>
   <p levels>Home</p>
   <div content>
-    <!--<p *ngIf="statusCar==='AVAILABLE'">List of cars currently available for rent</p>-->
   </div>
 </cs-header>
 <div class="main-panel">
@@ -13,7 +12,9 @@
             <h4 class="card-title">Available cars</h4>
             <p class="card-category"></p>
           </div>
+          <div class="ml-3">
           <cs-cars-filter (urlParam)="setFilterParam($event)"></cs-cars-filter>
+          </div>
           <ul class="list-group col-md-12" *ngIf="!isEmpty; else noCarsInfo">
             <div *ngFor="let car of  cars">
               <li class="list-group-item list-group-item-action">
@@ -22,21 +23,20 @@
                     <img src="../../../../../assets/img/mockImage.jpg" alt="car" class="car-img">
                   </div>
                   <div class="col-md-3">
-                    <h2>{{car.carModel.brandName | uppercase}} {{car.carModel.carModelName | uppercase}}</h2>
+                    <h2><b>{{car.carModel.brandName | uppercase}} {{car.carModel.carModelName | uppercase}}</b></h2>
                   </div>
                   <div class="col-md-4">
-                    <p class="card-text">Gearbox type:{{car.carParameter.gearboxType}}</p>
-                    <p class="card-text">Fuel type: {{car.carParameter.fuelType}}</p>
-                    <p class="card-text">Daily rate: {{car.carParameter.dailyRate | currency: 'PLN  '}}</p>
-                    <p class="card-text">Location: {{car.location.name}}</p>
+                    <p class="card-text"><b>Gearbox type: </b>{{car.carParameter.gearboxType}}</p>
+                    <p class="card-text"><b>Fuel type: </b>{{car.carParameter.fuelType}}</p>
+                    <p class="card-text"><b>Daily rate: </b>{{car.carParameter.dailyRate | currency: 'PLN  '}}</p>
+                    <p class="card-text"><b>Location: </b>{{car.location.name}}</p>
                   </div>
                   <div class="col-md-2">
                     <div class="btn btn-outline mr-2 details-button" (click)="openCarDetailsModal(car)">
                       <i class="material-icons">info</i>Details
                     </div>
                     <div class="btn btn-primary" [routerLink]="['/new-rental', car.id]" [routerLinkActive]="'active'">
-                      <i
-                        class="material-icons">book_online</i>Rent now
+                      <i class="material-icons">book_online</i>Rent now
                     </div>
                   </div>
                 </div>

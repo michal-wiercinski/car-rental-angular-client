@@ -14,7 +14,7 @@
               <p class="card-category">You can check or update your data</p>
             </div>
             <div class="card-body ">
-              <cs-password-update-form></cs-password-update-form>
+              <us-password-update-form></us-password-update-form>
               <form class="pt-2" *ngIf="user" [formGroup]="userForm">
                 <div class="row">
                   <div class="col-md-3">
@@ -49,14 +49,8 @@
                       <input formControlName="city" type="text" class="form-control">
                     </div>
                   </div>
-                  <!--<div class="col-md-3">
-                    <div class="form-group">
-                      <label class="bmd-label-floating">ID address</label>
-                      <input hidden formControlName="addressId" type="text" class="form-control">
-                    </div>
-                  </div>-->
                   <div class="col-md-3">
-                  <div class="form-group">
+                    <div class="form-group">
                       <label class="bmd-label-floating">Street</label>
                       <input formControlName="street" type="text" class="form-control">
                     </div>

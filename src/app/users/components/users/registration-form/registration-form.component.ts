@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {UserService} from '../../../../services/user.service';
 import {Router} from '@angular/router';
 import {AuthService} from '../../../../services/auth.service';
 
 @Component({
-  selector: 'app-registration-form',
+  selector: 'us-registration-form',
   templateUrl: './registration-form.component.html',
   styleUrls: ['./registration-form.component.scss']
 })
@@ -49,7 +48,6 @@ export class RegistrationFormComponent implements OnInit {
         confirmPassword: ['', Validators.required],
       }),
       email: ['', [Validators.email, Validators.required]],
-      //country: [''],
       city: ['', Validators.required],
       street: ['', Validators.required],
       houseNumber: ['', Validators.required],
@@ -66,7 +64,7 @@ export class RegistrationFormComponent implements OnInit {
         this.apiResponse.message = 'Successful registration';
         this.isSuccessful = true;
         this.isRegistrationFailed = false;
-        /*this.router.navigate(['/cars']);*/
+        this.newUserForm.reset();
       },
       error => {
         const errorResponse = error.error;

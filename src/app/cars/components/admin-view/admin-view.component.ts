@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {CarsService} from '../../../services/cars.service';
 import {Router} from '@angular/router';
 import {Car} from '../../../models/car';
-import {NewCarFormComponent} from '../cars/forms-components/new-car-form/new-car-form.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -70,10 +69,6 @@ export class AdminViewComponent implements OnInit {
     this.thePageSize = pageSize;
     this.thePageNumber = 1;
     this.loadAllCarsWithPage();
-  }
-
-  openNewCarFormModal() {
-    this.modalService.open(NewCarFormComponent, {size: 'lg'});
   }
 
   processResult() {

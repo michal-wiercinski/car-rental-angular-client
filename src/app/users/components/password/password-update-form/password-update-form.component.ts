@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../../services/user.service';
 
 @Component({
-  selector: 'cs-password-update-form',
+  selector: 'us-password-update-form',
   templateUrl: './password-update-form.component.html',
   styleUrls: ['./password-update-form.component.scss']
 })
@@ -49,7 +49,7 @@ export class PasswordUpdateFormComponent implements OnInit {
         const errorResponse = error.error;
         this.errorMessage = error.error.message;
         this.apiResponse.error = true;
-        this.apiResponse.message = 'Password change error';
+        this.apiResponse.message = 'Password update error';
         if (errorResponse.error && errorResponse.message === 'VALIDATION_FAILED') {
           this.errorFieldSubmitted = errorResponse.data;
         }
@@ -61,4 +61,3 @@ export class PasswordUpdateFormComponent implements OnInit {
     this.isCollapsed = !this.isCollapsed;
   }
 }
-

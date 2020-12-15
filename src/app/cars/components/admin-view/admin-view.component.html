@@ -7,7 +7,8 @@
   <div class="content">
     <div class="container-fluid">
       <div class="ml-2">
-        <div class="btn btn-success text-md-left text-center mb-3" (click)="openNewCarFormModal()">
+        <div class="btn btn-success text-md-left text-center mb-3" [routerLink]="['/new-car']"
+             [routerLinkActive]="'active'">
           <i class="material-icons">library_add</i>Add new car
         </div>
         <div>

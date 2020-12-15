@@ -5,7 +5,7 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {UserService} from '../../../../services/user.service';
 
 @Component({
-  selector: 'app-password-reminder-form-component',
+  selector: 'us-password-reminder-form-component',
   templateUrl: './password-reminder-form.component.html',
   styleUrls: ['./password-reminder-form.component.scss']
 })
@@ -40,9 +40,8 @@ export class PasswordReminderFormComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    console.log(this.emailForm.value.email);
     this.userService.sendPasswordResetToken(this.emailForm.value.email).subscribe(() => {
-        this.router.navigate(['/sign-in']);
+      this.closeModal();
       },
       error => {
         this.errorMessage = error.error.message;

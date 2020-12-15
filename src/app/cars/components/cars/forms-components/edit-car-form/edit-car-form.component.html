@@ -1,5 +1,5 @@
 <cs-header>
-  <p levels>Admin panel</p>
+  <p levels>Update car</p>
   <div content>
   </div>
 </cs-header>
@@ -14,34 +14,25 @@
         <div class="card-body">
           <form [formGroup]="carForm">
             <div class="row">
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <div class="form-group">
                   <cs-typeahead-cars-model [carModelForm]="carForm"
                                            (carModelFormEmitter)="setCarModel($event)"
                                            [car]="car"></cs-typeahead-cars-model>
                 </div>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <div class="form-group">
                   <cs-typeahead-location [locationForm]="carForm"
                                          (locationFormEmitter)="setLocation($event)"
                                          [car]="car"></cs-typeahead-location>
                 </div>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <div class="form-group">
                   <label class="bmd-label-floating">Registration number</label>
                   <input formControlName="registrationNumber" type="text" class="form-control"
                          placeholder="Registration number">
-                </div>
-              </div>
-              <div class="col-md-3 pb-2">
-                <div class="form-group">
-                  <select formControlName="carStatus" class="form-control options-list">
-                    <option value="{{car.carStatus}}" selected>{{car.carStatus}}</option>
-                    <option value="AVAILABLE">Available</option>
-                    <option value="UNAVAILABLE">Unavailable</option>
-                  </select>
                 </div>
               </div>
             </div>
@@ -77,18 +68,18 @@
                     <input formControlName="numberOfSeats" type="number" class="form-control">
                   </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-2">
-                  <div class="form-group">
-                    <label class="bmd-label-floating">Fuel tank volume</label>
-                    <input formControlName="fuelTankVolume" type="number" class="form-control">
-                  </div>
-                </div>
                 <div class="col-md-2">
                   <div class="form-group">
                     <label class="bmd-label-floating">Volume of luggage</label>
                     <input formControlName="volumeOfLuggage" type="number" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Fuel tank volume</label>
+                    <input formControlName="fuelTankVolume" type="number" class="form-control">
                   </div>
                 </div>
                 <div class="col-md-2">
@@ -166,6 +157,15 @@
                     </select>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div class="col-md-3 pl-0">
+              <div class="form-group">
+                <select formControlName="carStatus" class="form-control options-list">
+                  <option value="{{car.carStatus}}" selected>{{car.carStatus}}</option>
+                  <option value="AVAILABLE">Available</option>
+                  <option value="UNAVAILABLE">Unavailable</option>
+                </select>
               </div>
             </div>
             <div class="row">

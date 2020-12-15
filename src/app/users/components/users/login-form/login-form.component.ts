@@ -1,15 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {UserService} from '../../../../services/user.service';
+import {FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {TokenStorageService} from '../../../../services/token-storage.service';
 import {AuthService} from '../../../../services/auth.service';
-import {NewCarFormComponent} from '../../../../cars/components/cars/forms-components/new-car-form/new-car-form.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {PasswordReminderFormComponent} from '../password-reminder-form/password-reminder-form.component';
+import {PasswordReminderFormComponent} from '../../password/password-reminder-form/password-reminder-form.component';
 
 @Component({
-  selector: 'app-login-form',
+  selector: 'us-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
@@ -57,8 +55,7 @@ export class LoginFormComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/cars');
       },
       error => {
         this.errorMessage = error.error.message;

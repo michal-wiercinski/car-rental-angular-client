@@ -95,185 +95,61 @@
           <input formControlName="carParameter.engine.engineCapacity" type="number" class="form-control">
         </div>
       </div>
-        <div class="col-md-2 p-1">
-          <div class=" form-group">
-            <label class="bmd-label-floating">Fuel consumption</label>
-            <input formControlName="carParameter.engine.averageFuelConsumption" type="number" class="form-control">
-          </div>
+      <div class="col-md-2 p-1">
+        <div class=" form-group">
+          <label class="bmd-label-floating">Fuel consumption</label>
+          <input formControlName="carParameter.engine.averageFuelConsumption" type="number" class="form-control">
         </div>
-      <div class="col-md-2 p-1">
-          <div class=" form-group">
-            <select formControlName="carParameter.engine.fuelType" class="form-control options-list">
-              <option selected value="">Fuel type</option>
-              <option value="DIESEL">Diesel</option>
-              <option value="HYBRID">Hybrid</option>
-              <option value="PETROL">Petrol</option>
-            </select>
-          </div>
       </div>
       <div class="col-md-2 p-1">
-          <div class=" form-group">
-            <label class="bmd-label-floating">Number of gears</label>
-            <input formControlName="carParameter.driveTrain.numberOfGears" type="number" class="form-control">
-          </div>
+        <div class=" form-group">
+          <select formControlName="carParameter.engine.fuelType" class="form-control options-list">
+            <option selected value="">Fuel type</option>
+            <option value="DIESEL">Diesel</option>
+            <option value="HYBRID">Hybrid</option>
+            <option value="PETROL">Petrol</option>
+          </select>
+        </div>
       </div>
       <div class="col-md-2 p-1">
-          <div class=" form-group">
-            <select formControlName="carParameter.driveTrain.wheelDrive" class="form-control options-list">
-              <option selected value="">Wheel drive</option>
-              <option value="FRONT_WHEEL_DRIVE">Front-wheel drive</option>
-              <option value="REAR_WHEEL_DRIVE">Rear-wheel drive</option>
-              <option value="4x4">4x4</option>
-            </select>
-          </div>
+        <div class=" form-group">
+          <label class="bmd-label-floating">Number of gears</label>
+          <input formControlName="carParameter.driveTrain.numberOfGears" type="number" class="form-control">
+        </div>
       </div>
       <div class="col-md-2 p-1">
-          <div class="form-group">
-            <select formControlName="carParameter.driveTrain.gearboxType" class="form-control options-list">
-              <option selected value="">Gearbox type</option>
-              <option value="MANUAL">Manual</option>
-              <option value="AUTOMATIC">Automatic</option>
-            </select>
-          </div>
+        <div class=" form-group">
+          <select formControlName="carParameter.driveTrain.wheelDrive" class="form-control options-list">
+            <option selected value="">Wheel drive</option>
+            <option value="FRONT_WHEEL_DRIVE">Front-wheel drive</option>
+            <option value="REAR_WHEEL_DRIVE">Rear-wheel drive</option>
+            <option value="4x4">4x4</option>
+          </select>
+        </div>
       </div>
       <div class="col-md-2 p-1">
-          <div class="form-group">
-            <select formControlName="carStatus.carStatusName" class="form-control options-list">
-              <option selected value="">Car status</option>
-              <option value="AVAILABLE">Available</option>
-              <option value="UNAVAILABLE">Unavailable</option>
-            </select>
-          </div>
+        <div class="form-group">
+          <select formControlName="carParameter.driveTrain.gearboxType" class="form-control options-list">
+            <option selected value="">Gearbox type</option>
+            <option value="MANUAL">Manual</option>
+            <option value="AUTOMATIC">Automatic</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-2 p-1">
+        <div class="form-group">
+          <select formControlName="carStatus.carStatusName" class="form-control options-list">
+            <option selected value="">Car status</option>
+            <option value="AVAILABLE">Available</option>
+            <option value="UNAVAILABLE">Unavailable</option>
+          </select>
+        </div>
       </div>
     </div>
-          <div class="col-sm-12 col-md-5 pt-3">
-            <button [disabled]="filterForm.invalid" (click)="onSubmit()" class="btn btn-primary">Find car for
-              you;)
-            </button>
-          </div>
+    <div class="col-sm-12 col-md-5">
+      <button [disabled]="filterForm.invalid" (click)="onSubmit()" class="btn btn-primary">
+        <i class="material-icons">search</i>Find car for you
+      </button>
+    </div>
   </form>
 </div>
-
-<!--<li>
-      <form [formGroup]="filterForm">
-        <div class="row offset-2">
-          <div class="col-md-2 form-group">
-            <cs-typeahead-cars-model [carModelForm]="filterForm"
-                                     (carModelFormEmitter)="setCarModel($event)"></cs-typeahead-cars-model>
-          </div>
-          <div class="col-md-2 form-group">
-            <cs-typeahead-location [locationForm]="filterForm"
-                                   (locationFormEmitter)="setLocation($event)"></cs-typeahead-location>
-          </div>
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Registration number</label>
-            <input formControlName="registrationNumber" type="text" class="form-control">
-          </div>
-        </div>
-        <div class="row offset-2">
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Year of production</label>
-            <input formControlName="carParameter.yearOfProd" type="number" class="form-control">
-          </div>
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Daily rate</label>
-            <input formControlName="carParameter.dailyRate" type="number" class="form-control">
-          </div>
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Current mileage</label>
-            <input formControlName="carParameter.currentMileage" type="number" class="form-control">
-          </div>
-        </div>
-        <div class="row offset-2">
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Number of doors</label>
-            <input formControlName="carParameter.bodyType.numberOfDoors" type="number" class="form-control">
-          </div>
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Number of seats</label>
-            <input formControlName="carParameter.bodyType.numberOfSeats" type="number" class="form-control">
-          </div>
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Fuel tank volume</label>
-            <input formControlName="carParameter.bodyType.fuelTankVolume" type="number" class="form-control">
-          </div>
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Volume of luggage</label>
-            <input formControlName="carParameter.bodyType.volumeOfLuggage" type="number" class="form-control">
-          </div>
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Body type name</label>
-            <select formControlName="carParameter.bodyType.bodyTypeName" class="form-control">
-              <option value="COUPE">Coupe</option>
-              <option value="HATCHBACK">Hatchback</option>
-              <option value="JEEP">Jeep</option>
-              <option value="SEDAN">Sedan</option>
-              <option value="SUV">SUV</option>
-              <option value="VAN">VAN</option>
-              <option value="WAGON">Wagon</option>
-            </select>
-          </div>
-        </div>
-        <div class="row offset-2">
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Engine power</label>
-            <input formControlName="carParameter.engine.enginePower" type="number" class="form-control">
-          </div>
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Engine capacity</label>
-            <input formControlName="carParameter.engine.engineCapacity" type="number" class="form-control">
-          </div>
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Fuel consumption</label>
-            <input formControlName="carParameter.engine.averageFuelConsumption" type="number" class="form-control">
-          </div>
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Fuel type</label>
-            <select formControlName="carParameter.engine.fuelType" class="form-control">
-              <option value="DIESEL">Diesel</option>
-              <option value="HYBRID">Hybrid</option>
-              <option value="PETROL">Petrol</option>
-            </select>
-          </div>
-        </div>
-        <div class="row offset-2">
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Number of gears</label>
-            <input formControlName="carParameter.driveTrain.numberOfGears" type="number" class="form-control">
-          </div>
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Wheel drive</label>
-            <select formControlName="carParameter.driveTrain.wheelDrive" class="form-control">
-              <option value="FRONT_WHEEL_DRIVE">Front-wheel drive</option>
-              <option value="REAR_WHEEL_DRIVE">Rear-wheel drive</option>
-              <option value="4x4">4x4</option>
-            </select>
-          </div>
-          <div class="col-md-2 form-group">
-            <label class="bmd-label-floating">Gearbox type</label>
-            <select formControlName="carParameter.driveTrain.gearboxType" class="form-control">
-              <option value="MANUAL">Manual</option>
-              <option value="AUTOMATIC">Automatic</option>
-            </select>
-          </div>
-        </div>
-        <div class="row offset-4">
-          <div class="col-md-1 form-group">
-            <label class="bmd-label-floating">Availability</label>
-            <select formControlName="carStatus.carStatusName" class="form-control">
-              <option value="AVAILABLE">Available</option>
-              <option value="UNAVAILABLE">Unavailable</option>
-            </select>
-          </div>
-          <div class="col-sm-12 col-md-5 pt-3 pl-5">
-            <button [disabled]="filterForm.invalid" (click)="onSubmit()" class="btn btn-primary">Find car for
-              you;)
-            </button>
-          </div>
-        </div>
-      </form>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="onSubmit()">Search</button>
-    </div>
-</li>
-  -->
